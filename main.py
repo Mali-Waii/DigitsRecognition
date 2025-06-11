@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
- --- モデル定義 ---
+# --- モデル定義 ---
 class SimpleMLP(nn.Module):
     def __init__(self):
         super().__init__()
