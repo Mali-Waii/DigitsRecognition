@@ -4,6 +4,8 @@ import torch.nn as nn
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
+from streamlit_drawable_canvas import st_canvas
+
 
 # --- モデル定義 ---
 class SimpleMLP(nn.Module):
@@ -35,7 +37,7 @@ uploaded_file = st.file_uploader("画像ファイルをアップロードして�
 
 # --- 手書きキャンバス ---
 st.write("または、下のキャンバスに数字を描いてください（黒で太めに描くと認識しやすいです）")
-canvas_result = st.canvas(
+canvas_result = st_canvas(
     fill_color="white",
     stroke_width=10,
     stroke_color="black",
@@ -45,6 +47,7 @@ canvas_result = st.canvas(
     drawing_mode="freedraw",
     key="canvas",
 )
+
 
 def preprocess_image(image: Image.Image):
     # グレースケール化・28x28リサイズ・正規化
